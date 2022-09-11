@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "outDir": "../out",
+    "target": "ES2021",
+  },
+  "include": [
+    "./orbit"
+  ]
+}

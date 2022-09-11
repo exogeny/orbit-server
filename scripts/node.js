@@ -1,0 +1,11 @@
+const path = require("path");
+const fs = require("fs");
+const root = path.dirname(__dirname);
+const yarnrcPath = path.join(root, '.yarnrc');
+const yarnrc = fs.readFileSync(yarnrcPath, 'utf8');
+const version = /^target\s+"([^"]+)"$/m.exec(yarnrc)[1];
+const platform = process.platform;
+const arch = process.arch;
+const node = platform === 'win32' ? 'node.exe' : 'node';
+const nodePath = path.join(root, '.build', 'node', `v${version}`, `${platform}-${arch}`, node);
+console.log(nodePath);

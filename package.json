@@ -1,0 +1,48 @@
+{
+  "name": "manager",
+  "version": "1.0.0",
+  "description": "The manager for CBMI.",
+  "main": "./out/main",
+  "scripts": {
+    "preinstall": "node build/npm/preinstall.js",
+    "postinstall": "node build/npm/postinstall.js",
+    "compile": "node --max_old_space_size=4096 ./node_modules/gulp/bin/gulp.js compile",
+    "gulp": "node --max_old_space_size=8192 ./node_modules/gulp/bin/gulp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerenceWangh/manager.git"
+  },
+  "keywords": [
+    "example",
+    "typescript",
+    "redux",
+    "react"
+  ],
+  "author": "Terence Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TerenceWangh/manager/issues"
+  },
+  "homepage": "https://github.com/TerenceWangh/manager#readme",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/node": "^18.7.14",
+    "event-stream": "3.3.4",
+    "gulp": "^4.0.2",
+    "gulp-bom": "^3.0.0",
+    "minimist": "^1.2.6",
+    "opn": "^6.0.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^4.8.3"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
