@@ -133,7 +133,7 @@ function createCompile(src: string, build: boolean, emitError: boolean, transpil
 
   const compilation = tsb.create(
     projectPath, overrideOptions, { verbose: false, transpileOnly }, err => reporter(err));
-  
+
   function pipeline(token?: util.ICancellationToken) {
 
     const utf8Filter = util.filter(data => /(\/|\\)test(\/|\\).*utf8/.test(data.path));
@@ -158,7 +158,7 @@ function createCompile(src: string, build: boolean, emitError: boolean, transpil
       }))
       .pipe(tsFilter.restore)
       .pipe(reporter.end(!!emitError));
-    
+
     return es.duplex(input, output);
   }
 

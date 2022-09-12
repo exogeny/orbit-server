@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "newLine": "LF",
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "outFile": "../out/loader.js"
+  },
+  "files": [
+    "./loader"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

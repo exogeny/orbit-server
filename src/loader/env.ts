@@ -16,10 +16,6 @@ declare var process: {
   };
 }
 
-declare var require: {
-  nodeRequire(module: string): any;
-}
-
 declare var global: object;
 
 const _commonjsGlobal = typeof global === 'object' ? global : {};
