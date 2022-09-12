@@ -9,18 +9,16 @@ const task = require('./lib/task');
 const { compileTask } = require('./lib/compilation');
 const { createLoaderCompileTask } = require('./lib/loader');
 
-const compileLoaderTask = task.define('compile-loader', task.series(
-  createLoaderCompileTask()));
-
 // Fast compile for development time
 const compileClientTask = task.define('compile-client', task.series(
   util.rimraf('out'),
   util.buildWebNodePaths('out'),
+  createLoaderCompileTask(),
   compileTask('src', 'out', false)));
 gulp.task(compileClientTask);
 
 // All
-const _compileTask = task.define('compile', task.parallel(compileClientTask, compileLoaderTask));
+const _compileTask = task.define('compile', task.parallel(compileClientTask));
 gulp.task(_compileTask);
 
 // Default

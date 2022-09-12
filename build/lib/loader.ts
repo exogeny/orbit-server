@@ -10,7 +10,7 @@ export function createLoaderCompileTask() {
 
   return function () {
     const tsb = require('./tsb') as typeof import('./tsb');
-    const projectPath = path.join(__dirname, '../../src', 'tsconfig.loader.json');
+    const projectPath = path.join(__dirname, '../../loader', 'tsconfig.json');
     const compilation = tsb.create(projectPath, {}, { verbose: false }, err => reporter(err));
 
     function compile(token?: util.ICancellationToken) {
@@ -33,10 +33,10 @@ export function createLoaderCompileTask() {
     }
 
     compile.tsProjectSrc = () => {
-      return compilation.src({ base: 'src' });
+      return compilation.src({ base: 'loader' });
     };
 
-    const srcPipe = gulp.src(`src/loader/**`, { base: `src` });
+    const srcPipe = gulp.src(`loader/**`, { base: `loader` });
     return srcPipe.pipe(compile()).pipe(gulp.dest('out'));
   };
 }
