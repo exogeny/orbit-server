@@ -49,7 +49,7 @@ export interface IInstantionService {
   createInstance<T>(descriptor: descriptors.SyncDescriptor0<T>): T;
   createInstance<Ctor extends new (...args: any[]) => any, R extends InstanceType<Ctor>>(
     ctor: Ctor, ...args: GetLeadingNonServiceArgs<ConstructorParameters<Ctor>>): R;
-  
+
   /**
    * Calls a function with a service accessor.
    */
@@ -85,7 +85,7 @@ function storeServiceDependency(id: Function, target: Function, index: number): 
 export function createDecorator<T>(serviceId: string): ServiceIdentifier<T> {
 
   if (_util.serviceIds.has(serviceId)) {
-    return _util.serviceIds.get(serviceId);
+    return _util.serviceIds.get(serviceId)!;
   }
 
   const id = <any>function (target: Function, key: string, index: number): any {
